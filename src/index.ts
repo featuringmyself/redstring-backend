@@ -3,6 +3,8 @@ import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
 import { connectDB } from "./config/db.config.ts"
+import indexRouter from "./routes/index.routes.ts";
+
 // Load environment variables
 dotenv.config();
 
@@ -21,8 +23,13 @@ app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.path}`);
+    next();
+});
+
 // API Routers
-// app.use("/api", )
+app.use("/api", indexRouter)
 
 // 404 handler
 app.use((req, res) => {
@@ -43,4 +50,5 @@ const startServer = async () => {
 };
 
 startServer();
+
 export default app;
