@@ -1,20 +1,11 @@
 import { Request, Response } from "express";
 import Profile, { IProfile } from "../models/profile.model.js";
 
-// Create a new profile
-export const createProfile = async (req: Request, res: Response): Promise<void> => {
-    try {
-        const newProfile: IProfile = await Profile.create(req.body);
-        res.status(201).json(newProfile);
-    } catch (error: any) {
-        res.status(400).json({ error: error.message });
-    }
-};
-
+// Get all profiles
 // Get all profiles
 export const getAllProfiles = async (req: Request, res: Response): Promise<void> => {
     try {
-        const profiles: IProfile[] = await Profile.find();
+        const profiles: IProfile[] = await Profile.find().select("name profession yoe score location college availability skills nextOpportunity");
         res.status(200).json(profiles);
     } catch (error: any) {
         res.status(500).json({ error: error.message });
