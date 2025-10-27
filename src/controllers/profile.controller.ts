@@ -5,7 +5,8 @@ import Profile, { IProfile } from "../models/profile.model.js";
 // Get all profiles
 export const getAllProfiles = async (req: Request, res: Response): Promise<void> => {
     try {
-        const profiles: IProfile[] = await Profile.find().select("name profession yoe score location college availability skills nextOpportunity");
+        const profiles: IProfile[] = await Profile.find().select("_id name profession yoe score location college availability skills nextOpportunity");
+        console.log(profiles);
         res.status(200).json(profiles);
     } catch (error: any) {
         res.status(500).json({ error: error.message });

@@ -35,10 +35,11 @@
     // Recommended Options
     "strict": true,
     "jsx": "react-jsx",
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
+//    "allowImportingTsExtensions": true,
+//    "noEmit": true,
 //    "verbatimModuleSyntax": true,
     "isolatedModules": true,
+    "incremental": false,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,

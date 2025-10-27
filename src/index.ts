@@ -2,8 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
-import { connectDB } from "./config/db.config.ts"
-import indexRouter from "./routes/index.routes.ts";
+import { connectDB } from "./config/db.config.js"
+import indexRouter from "./routes/index.routes.js";
 
 // Load environment variables
 dotenv.config();
