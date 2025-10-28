@@ -38,7 +38,7 @@ export const getCreditBalance = async (req: Request, res: Response) => {
 // ✅ Unlock profile (cost = 10 credits)
 export const unlockProfile = async (req: Request, res: Response) => {
     try {
-        const ip:string = (req.headers['x-forwarded-for'] as string)?.split(',')[0] || req.ip as string;
+        const ip:string = req.ip as string;
         console.log( "IP" + ip);
         const { profileId } = req.body;
         if (!profileId) {
