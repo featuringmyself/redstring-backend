@@ -3,7 +3,7 @@ import { getCreditBalance, unlockProfile } from "../controllers/user.controller.
 
 const router = express.Router();
 
-router.post("/credit", getCreditBalance);
+router.get("/credit", getCreditBalance);
 router.post("/unlock", unlockProfile);
 
 export default router;
