@@ -13,6 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 // Middleware
+app.set('trust proxy', true);
 app.use(helmet()); // Security headers
 app.use(cors()); // Enable CORS
 app.use(express.json()); // Parse JSON bodies
